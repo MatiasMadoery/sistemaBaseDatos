@@ -16,7 +16,11 @@ namespace sistemaBaseDatos
         {
             try
             {
-                conn.ConnectionString = "Data Source=DESKTOP-IIQB7FM\\SQLEXPRESS;Initial Catalog=Sistema;Integrated Security=True;Encrypt=False";
+                //ConexionNotebook
+                //conn.ConnectionString = "Data Source=MATIAS\\SQLEXPRESS;Initial Catalog=Sistema;Integrated Security=True";
+
+                //ConexionEscritorio
+                conn.ConnectionString = @"Data Source=DESKTOP-IIQB7FM\SQLEXPRESS;Initial Catalog=Sistema;Integrated Security=True";
                 conn.Open();
                 return true;
             }

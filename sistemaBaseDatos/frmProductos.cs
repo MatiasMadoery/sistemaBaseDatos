@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace sistemaBaseDatos
 {
-    public partial class Form1 : Form
+    public partial class frmProductos : Form
     {
-        public Form1()
+        public frmProductos()
         {
             InitializeComponent();
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            frmNuevoProducto nuevoProducto = new frmNuevoProducto();
+            nuevoProducto.Show();
         }
     }
 }
