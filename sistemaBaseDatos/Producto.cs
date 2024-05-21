@@ -38,12 +38,12 @@ namespace sistemaBaseDatos
         {
             bool correcto;
             string cadena = $"INSERT INTO Productos (IdMarca, Descripcion, PrecioCompra, PrecioVenta)" +
-                $"VALUE (" +
-                $"{IdMarca}," +
-                $"'{Descripcion}'," +
+                "VALUES(" +
+                $"{IdMarca}, " +
+                $"'{Descripcion}'," +//Los string van entre ''
                 $"{PrecioCompra}," +
                 $"{PrecioVenta}" +
-                $")";
+                ")";
             correcto = BaseDatos.EjecutarConsulta(cadena);
             return correcto;
         }
@@ -54,30 +54,43 @@ namespace sistemaBaseDatos
             correcto = BaseDatos.EjecutarConsulta(cadena);
             return correcto;
         }
+
+       public bool Modificar()
+        {
+            bool correcto;
+            string cadena = $"UPDATE Productos SET " +
+                $"IdMarca = {IdMarca}, " +
+                $"Descripcion = '{Descripcion}'," +
+                $"PrecioCompra = {PrecioCompra}," +
+                $"PrecioVenta = {PrecioVenta}" +
+                $" WHERE Id = {Id}";
+            correcto = BaseDatos.EjecutarConsulta(cadena);
+            return correcto;
+        }
         public static DataTable BuscarTodo()
         {
             DataTable dt = new DataTable();
             string cadena = $"SELECT Productos.Id," +
-                $"Productos.IdMarca," +
-                $"Productos.Descripcion," +
-                $"Marcas.Descripcion," +
-                $"Productos.PrecioCompra," +
+                $"Productos.IdMarca, " +
+                $"Productos.Descripcion, " +
+                $"Marcas.Descripcion, " +
+                $"Productos.PrecioCompra, " +
                 $"Productos.PrecioVenta" +
-                $"FROM Productos INNER JOIN Marcas ON Productos.IdMarca = Marcas.Id";
+                $" FROM Productos INNER JOIN Marcas ON Productos.IdMarca = Marcas.Id";
             dt = BaseDatos.Buscar(cadena);
             return dt;
         }
-        public static DataTable BuscarPorId(string IdBuscado) 
+        public static DataTable BuscarPorId(int IdBuscado) 
         {
             DataTable dt = new DataTable();
-            string cadena = $"SELECT Productos.Id," +
-                $"Productos.IdMarca," +
-                $"Productos.Descripcion," +
-                $"Marcas.Descripcion," +
-                $"Productos.PrecioCompra," +
+            string cadena = $"SELECT Productos.Id, " +
+                $"Productos.IdMarca, " +
+                $"Productos.Descripcion, " +
+                $"Marcas.Descripcion, " +
+                $"Productos.PrecioCompra, " +
                 $"Productos.PrecioVenta" +
-                $"FROM Productos INNER JOIN Marcas ON Productos.IdMarca = Marcas.Id" +
-                $"WHERE Productos Id = {IdBuscado}";
+                $" FROM Productos INNER JOIN Marcas ON Productos.IdMarca = Marcas.Id" +
+                $" WHERE Productos.Id = {IdBuscado}";
             dt = BaseDatos.Buscar(cadena);
             return dt;
         }
@@ -90,8 +103,8 @@ namespace sistemaBaseDatos
                 $"Marcas.Descripcion," +
                 $"Productos.PrecioCompra," +
                 $"Productos.PrecioVenta" +
-                $"FROM Productos INNER JOIN Marcas ON Productos.IdMarca = Marcas.Id" +
-                $"WHERE Marcas.Descripcion {MarcaBuscado}";
+                $" FROM Productos INNER JOIN Marcas ON Productos.IdMarca = Marcas.Id" +
+                $" WHERE Marcas.Descripcion = '{MarcaBuscado}'";
             dt = BaseDatos.Buscar(cadena);
             return dt;
         }
@@ -104,8 +117,8 @@ namespace sistemaBaseDatos
                 $"Marcas.Descripcion," +
                 $"Productos.PrecioCompra," +
                 $"Productos.PrecioVenta" +
-                $"FROM Productos INNER JOIN Marcas ON Productos.IdMarca = Marcas.Id" +
-                $"WHERE Productos.Descripcion 'LIKE %{DescripcionBuscado}%'";
+                $" FROM Productos INNER JOIN Marcas ON Productos.IdMarca = Marcas.Id" +
+                $" WHERE Productos.Descripcion LIKE '%{DescripcionBuscado}%'";
             dt = BaseDatos.Buscar(cadena);
             return dt;
         }

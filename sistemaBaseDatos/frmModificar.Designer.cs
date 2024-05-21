@@ -50,6 +50,7 @@
             this.btnCancelar.TabIndex = 19;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
@@ -59,6 +60,7 @@
             this.btnGuardar.TabIndex = 18;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // cmbMarca
             // 
@@ -141,7 +143,7 @@
             this.label5.TabIndex = 20;
             this.label5.Text = "ID";
             // 
-            // Modificar
+            // frmModificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -158,7 +160,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Modificar";
+            this.Name = "frmModificar";
             this.Text = "Modificar";
             this.ResumeLayout(false);
             this.PerformLayout();

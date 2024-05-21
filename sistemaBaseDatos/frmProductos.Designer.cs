@@ -67,6 +67,7 @@
             this.btnBuscarId.TabIndex = 3;
             this.btnBuscarId.Text = "BUSCAR";
             this.btnBuscarId.UseVisualStyleBackColor = true;
+            this.btnBuscarId.Click += new System.EventHandler(this.btnBuscarId_Click);
             // 
             // txtBuscarPorId
             // 
@@ -101,6 +102,7 @@
             this.btnBuscarMarca.TabIndex = 1;
             this.btnBuscarMarca.Text = "BUSCAR";
             this.btnBuscarMarca.UseVisualStyleBackColor = true;
+            this.btnBuscarMarca.Click += new System.EventHandler(this.btnBuscarMarca_Click);
             // 
             // groupBox2
             // 
@@ -121,6 +123,7 @@
             this.btnBuscarDescripcion.TabIndex = 4;
             this.btnBuscarDescripcion.Text = "BUSCAR";
             this.btnBuscarDescripcion.UseVisualStyleBackColor = true;
+            this.btnBuscarDescripcion.Click += new System.EventHandler(this.btnBuscarDescripcion_Click);
             // 
             // txtBuscarPorDescripcion
             // 
@@ -147,6 +150,7 @@
             this.button4.TabIndex = 4;
             this.button4.Text = "BUSCAR TODO";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // btnNuevo
             // 
@@ -166,6 +170,7 @@
             this.button6.TabIndex = 6;
             this.button6.Text = "MODIFICAR";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -175,6 +180,7 @@
             this.button7.TabIndex = 7;
             this.button7.Text = "ELIMINAR";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // frmProductos
             // 
